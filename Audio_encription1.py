@@ -8,6 +8,7 @@ key_hash = md5(key.encode('ascii')).digest()  # 16-byte key
 tdes_key = DES3.adjust_key_parity(key_hash)
 cipher = DES3.new(tdes_key, DES3.MODE_EAX, nonce=b'0')
 
+#use cases
 
 def case(a):
     if a == 1:
@@ -20,7 +21,7 @@ def case(a):
     else:
         print("\nEnter valid Choice!")
 
-
+#encoding data into audio
 def encode():
     print("\nEncoding Starts..")
     audio = wave.open("pink.wav", mode="rb")
@@ -57,7 +58,7 @@ def encode():
 
     print("Audio file encrypted with DES3 Algorithm Successful \n")
 
-
+#decoding audio file
 def decode():
     
     print("\n\n Audio file decryption with DES3 Algorithm Starts :\n")
@@ -97,6 +98,6 @@ def main():
         print("\nSelect an option: \n1)Encode\n2)Decode\n3)exit")
         val = int(input("\nChoice:"))
         case(val)
-
+#driver code
 if __name__ == "__main__":
     main()
